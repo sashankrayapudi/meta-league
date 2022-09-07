@@ -6,7 +6,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Header from '../../components/Header/Header';
-import LandingCard from '../../components/LandingCard/LandingCard'
+import LandingCards from '../../components/LandingCards/LandingCards'
 
 
 // import './App.css';
@@ -15,11 +15,12 @@ import { makeStyles } from '@mui/styles'
 import { CssBaseline } from '@mui/material'
 import { styled } from '@mui/system';
 import island from '../../assets/island.jpg'
+import bg from '../../assets/bg.jpeg'
 
 
 const MyDiv = styled('div')({
   minHeight: '100vh',
-  backgroundImage: `url(${island })`,
+  backgroundImage: `url(${island})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover'
 })
@@ -30,7 +31,7 @@ export default function App() {
   <MyDiv>
     <CssBaseline />
     <Header />
-    <LandingCard />
+    <LandingCards />
   </MyDiv>
   );
 }

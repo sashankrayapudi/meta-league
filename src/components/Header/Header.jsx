@@ -6,6 +6,8 @@ import SortIcon from '@mui/icons-material/Sort'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ToolBar from '@mui/material/Toolbar';
 
+import { Link as Scroll } from 'react-scroll';
+
 // const useStyles = makeStyles((theme) => ({
 //   appbar: {
 //     color: 'secondary'
@@ -72,7 +74,7 @@ export default function Header() {
     setChecked(true);
   }, [])
   return (
-    <RootDiv>
+    <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
           <MyTitle><MySpan>Meta</MySpan> League</MyTitle>
@@ -81,15 +83,17 @@ export default function Header() {
           </ IconButton>
         </MyToolBar>
       </MyAppBar>
-      <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})} collapsedHeight={50}>
+      <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}>
         <WelcomeDiv>
           <Welcome>
             Welcome to <br />
             <MySpan>Meta League</MySpan>
           </Welcome>
-          <IconButton>
-            <GoDown />
-          </IconButton>
+          <Scroll to="landing-cards" smooth={true}>
+            <IconButton>
+              <GoDown />
+            </IconButton>
+          </Scroll>
         </WelcomeDiv>
       </Collapse>
     </RootDiv>

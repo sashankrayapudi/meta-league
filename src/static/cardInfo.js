@@ -2,17 +2,17 @@ import jj from '../assets/jj.jpg'
 
 const cardInfo = [
   {
-    title: 'Green',
+    title: 'About Us',
     desc:
-      "The Maldives are home to some of the world's most ravishing islands, but it's the sea, which truly makes these islands shine. Luminous aquamarine waters with a crystal clarity lap upon these dazzling white shores, which barely peek above the Indian Ocean.",
-    imageUrl: process.env.PUBLIC_URL + '../assets/jj.jpg', 
+      "Meta League is a complimentary platform to Sleeper. We provide projections, blogs, live feeds, and other features to personalize your Fantasy Football teams and leagues.",
+    // imageUrl: process.env.PUBLIC_URL + '../assets/jj.jpg', 
     time: 1500,
   },
   {
-    title: 'Bora Bora',
+    title: 'Demo League',
     desc:
-      'Shaped like a giant sombrero, this lush volcanic island stars in countless South Pacific fantasies. The focal point and best asset of this tropical beauty is its ravishing lagoon in technicolor turquoise. Fish, turtles, sharks, and rays swim in the clear waters.',
-    imageUrl: process.env.PUBLIC_URL + '/assets/ad.jpg',
+      "Don't play on Sleeper? No worries! Click on Aaron Donald to take you to one of our creator's leagues to view our amazing feautures.",
+    // imageUrl: process.env.PUBLIC_URL + '/assets/ad.jpg',
     time: 1500,
   },
 ];
