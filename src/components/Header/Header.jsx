@@ -2,11 +2,12 @@ import { useEffect, useState } from 'react';
 import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/system';
 import { AppBar, IconButton, Collapse} from '@mui/material'
-import SortIcon from '@mui/icons-material/Sort'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ToolBar from '@mui/material/Toolbar';
 
 import { Link as Scroll } from 'react-scroll';
+
+import BasicMenu from '../BasicMenu/BasicMenu'
 
 // const useStyles = makeStyles((theme) => ({
 //   appbar: {
@@ -22,7 +23,7 @@ const RootDiv = styled('div')({
   justifyContent: 'center',
   alignItems: 'center',
   height: '100vh',
-  fontFamily: 'Nunito'
+  fontFamily: 'Nunito',
 })
 
 const MyAppBar = styled(AppBar)({
@@ -35,15 +36,8 @@ const MyToolBar = styled(ToolBar)({
   margin: '0 auto'
 })
 
-const MyIconButton = styled(IconButton)({
-})
 
-const MySortIcon = styled(SortIcon)({
-  color: 'white',
-  fontSize: '2rem',
-})
-
-const MyTitle = styled('h1')({
+const Title = styled('h1')({
   flexGrow: '1'
 }) 
 
@@ -77,10 +71,8 @@ export default function Header() {
     <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
-          <MyTitle><MySpan>Meta</MySpan> League</MyTitle>
-          <IconButton>
-            <MySortIcon />
-          </ IconButton>
+          <Title><MySpan>Meta</MySpan> League</Title>
+          <BasicMenu/>
         </MyToolBar>
       </MyAppBar>
       <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}>
