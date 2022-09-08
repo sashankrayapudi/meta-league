@@ -62,7 +62,7 @@ const GoDown = styled(ExpandMoreIcon)({
   fontSize: '5rem'
 })
 
-export default function Header() {
+export default function Header({ user, setUser }) {
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
@@ -71,14 +71,14 @@ export default function Header() {
     <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
-          <Title><MySpan>Meta</MySpan> League</Title>
-          <BasicMenu/>
+          <Title>Good Evening <MySpan>{user.name}</MySpan></Title>
+          <BasicMenu setUser={setUser}/>
         </MyToolBar>
       </MyAppBar>
       <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}>
         <WelcomeDiv>
           <Welcome>
-            Welcome to <br />
+            Welcome to<br />
             <MySpan>Meta League</MySpan>
           </Welcome>
           <Scroll to="landing-cards" smooth={true}>

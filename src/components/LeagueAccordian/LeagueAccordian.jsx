@@ -1,20 +1,10 @@
 import * as React from 'react';
-import { Link } from 'react-router-dom';
-import * as userService from '../../utilities/users-service';
-
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
-import { IconButton } from '@mui/material'
-import SortIcon from '@mui/icons-material/Sort'
 
-import LeagueAccordion from '../LeagueAccordian/LeagueAccordian';
-import NestedMenuItem from "material-ui-nested-menu-item";
-
-
-export default function BasicMenu({ setUser }) {
+export default function LeagueAccordian() {
   const [anchorEl, setAnchorEl] = React.useState(null);
-  
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -22,11 +12,6 @@ export default function BasicMenu({ setUser }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
-
-  function handleLogOut() {
-    userService.logOut();
-    setUser(null);
-  }
 
   return (
     <div>
@@ -37,7 +22,7 @@ export default function BasicMenu({ setUser }) {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        <SortIcon sx = {{color:"white", fontSize:'2rem'}} />
+        My Leagues
       </Button>
       <Menu
         id="basic-menu"
@@ -49,8 +34,8 @@ export default function BasicMenu({ setUser }) {
         }}
       >
         <MenuItem onClick={handleClose}>Profile</MenuItem>
-        {/* <MenuItem onClick={handleClose}><LeagueAccordion /></MenuItem> */}
-        <MenuItem to='' onClick={handleLogOut}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>My account</MenuItem>
+        <MenuItem onClick={handleClose}>Logout</MenuItem>
       </Menu>
     </div>
   );
