@@ -8,11 +8,11 @@ import MenuItem from '@mui/material/MenuItem';
 import { IconButton } from '@mui/material'
 import SortIcon from '@mui/icons-material/Sort'
 
-import LeagueAccordion from '../LeagueAccordian/LeagueAccordian';
+import LeaguesMenu from '../LeaguesMenu';
 import NestedMenuItem from "material-ui-nested-menu-item";
 
 
-export default function BasicMenu({ setUser }) {
+export default function BasicMenu({ setUser, leagues }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   
   const open = Boolean(anchorEl);
@@ -48,10 +48,12 @@ export default function BasicMenu({ setUser }) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
         {/* <MenuItem onClick={handleClose}><LeagueAccordion /></MenuItem> */}
-        <MenuItem to='' onClick={handleLogOut}>Logout</MenuItem>
+        <LeaguesMenu leagues={leagues} />
+        <MenuItem to='' onClick={handleLogOut} sx ={{fontSize: '15px'}}>LOGOUT</MenuItem>
       </Menu>
     </div>
   );
 }
+
+

@@ -6,6 +6,7 @@ import NewOrderPage from '../NewOrderPage/NewOrderPage';
 import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Landing from '../Landing/Landing'
+import LeaguePage from '../LeaguePage'
 // import './App.css';
 
 
@@ -13,19 +14,20 @@ export default function App() {
   const [user, setUser] = useState(getUser());
 
   return (
-    <main className="App">
-      { user ?
-        <>
-          {/* <NavBar user={user} setUser={setUser} /> */}
-          <Routes>
-            <Route path='/' element={<Landing user={user} setUser={setUser} />} />
-            <Route path='/orders/new' element={<NewOrderPage />} />
-            <Route path='/orders' element={<OrderHistoryPage />} />
-          </Routes>
-        </>
-        :
-        <AuthPage setUser={setUser} />
-      }
-    </main>
+      <main className="App">
+        { user ?
+          <>
+            {/* <NavBar user={user} setUser={setUser} /> */}
+            <Routes>
+              <Route path='/' element={<Landing user={user} setUser={setUser} />} />
+              <Route path='/leagues/:leagueId' element={<LeaguePage />} />
+              <Route path='/orders/new' element={<NewOrderPage />} />
+              <Route path='/orders' element={<OrderHistoryPage />} />
+            </Routes>
+          </>
+          :
+          <AuthPage setUser={setUser} />
+        }
+      </main>
   );
 }

@@ -1,8 +1,10 @@
 const fetch = require('node-fetch');
+const baseURL = 'https://api.sleeper.app/v1'
 
 
 module.exports = {
-  getAll
+  getAll,
+  show
 }
 
 const username = 'dankShank'
@@ -15,3 +17,9 @@ async function getAll(req, res) {
   res.json(userLeagues)
 }
 
+
+async function show(req, res) {
+  const fetchResults = await fetch(`${baseURL}/league/${req.params.leagueId}`)
+  const leagueData = await fetchResults.json();
+  res.json(leagueData)
+}

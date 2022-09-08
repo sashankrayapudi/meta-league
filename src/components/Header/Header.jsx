@@ -1,11 +1,13 @@
 import { useEffect, useState } from 'react';
+import { Link as Scroll } from 'react-scroll';
+
 import { makeStyles } from '@mui/styles'
 import { styled } from '@mui/system';
 import { AppBar, IconButton, Collapse} from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ToolBar from '@mui/material/Toolbar';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
 
-import { Link as Scroll } from 'react-scroll';
 
 import BasicMenu from '../BasicMenu/BasicMenu'
 
@@ -42,7 +44,7 @@ const Title = styled('h1')({
 }) 
 
 const MySpan = styled('span')({
-  color: '#9932CC',
+  color: '#BA55D3',
   // color: '#5AFF3D'
 })
 
@@ -58,21 +60,22 @@ const Welcome = styled('h1')({
 })
 
 const GoDown = styled(ExpandMoreIcon)({
-  color: '#9932CC',
-  fontSize: '5rem'
+  color: '#BA55D3',
+  fontSize: '8rem'
 })
 
-export default function Header({ user, setUser }) {
+export default function Header({ user, setUser, leagues, theme }) {
   const [checked, setChecked] = useState(false);
   useEffect(() => {
     setChecked(true);
   }, [])
   return (
+    <ThemeProvider theme={theme}>
     <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
           <Title>Good Evening <MySpan>{user.name}</MySpan></Title>
-          <BasicMenu setUser={setUser}/>
+          <BasicMenu setUser={setUser} leagues={leagues} />
         </MyToolBar>
       </MyAppBar>
       <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}>
@@ -89,5 +92,6 @@ export default function Header({ user, setUser }) {
         </WelcomeDiv>
       </Collapse>
     </RootDiv>
+    </ThemeProvider>
   )
 }

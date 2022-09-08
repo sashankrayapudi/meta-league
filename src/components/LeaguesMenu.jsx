@@ -1,9 +1,13 @@
 import * as React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 
-export default function LeagueAccordian() {
+import LeaguePage from '../pages/LeaguePage'
+
+export default function LeaguesMenu({ leagues }) {
+  console.log(leagues)
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -21,6 +25,7 @@ export default function LeagueAccordian() {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
+        sx = {{ color: '#9932CC'}}
       >
         My Leagues
       </Button>
@@ -33,9 +38,11 @@ export default function LeagueAccordian() {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem onClick={handleClose}>Profile</MenuItem>
-        <MenuItem onClick={handleClose}>My account</MenuItem>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <div>
+          {leagues.map((league, idx) => 
+            <MenuItem key={idx} ><a href={`leagues/${league.league_id}`}>{league.name}</a></MenuItem>
+          )}
+        </div>
       </Menu>
     </div>
   );
