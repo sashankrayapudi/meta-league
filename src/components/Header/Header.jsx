@@ -1,24 +1,17 @@
 import { useEffect, useState } from 'react';
 import { Link as Scroll } from 'react-scroll';
 
-import { makeStyles } from '@mui/styles'
+
 import { styled } from '@mui/system';
 import { AppBar, IconButton, Collapse} from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import ToolBar from '@mui/material/Toolbar';
-import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { ThemeProvider } from '@mui/material/styles';
 
 
 import BasicMenu from '../BasicMenu/BasicMenu'
 
-// const useStyles = makeStyles((theme) => ({
-//   appbar: {
-//     color: 'secondary'
-//   },
-//   icon: {
-//     color: '#fff',
-//   }
-// }))
+
 
 const RootDiv = styled('div')({
   display: 'flex',
