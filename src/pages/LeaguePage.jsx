@@ -11,7 +11,7 @@ export default function LeaguePage() {
   useEffect(function() {
     async function getLeague() {
       const leagueData = await leaguesAPI.getById(leagueId);
-      console.log(leagueData)
+      // console.log(leagueData)
       setLeague(leagueData)
     }
     getLeague()

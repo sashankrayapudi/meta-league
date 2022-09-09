@@ -66,15 +66,26 @@ const GoDown = styled(ExpandMoreIcon)({
 
 export default function Header({ user, setUser, leagues, theme }) {
   const [checked, setChecked] = useState(false);
+  const [hour, setHour] = useState(null)
+
   useEffect(() => {
     setChecked(true);
   }, [])
+
+
+  useEffect(() => {
+    const date = new Date();
+    const hour = date.getHours()
+    console.log(hour)
+    setHour(23)
+  }, [])
+
   return (
     <ThemeProvider theme={theme}>
     <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
-          <Title>Good Evening <MySpan>{user.name}</MySpan></Title>
+          <Title>{hour < 12  ? (hour >= 6 ? "Good Morning" : "Sweet Dreams") : (hour < 18 ? "Good Afternoon" : "Good Evening")}, <MySpan>{user.name}</MySpan></Title>
           <BasicMenu setUser={setUser} leagues={leagues} />
         </MyToolBar>
       </MyAppBar>
