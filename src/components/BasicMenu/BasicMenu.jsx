@@ -9,7 +9,6 @@ import { IconButton } from '@mui/material'
 import SortIcon from '@mui/icons-material/Sort'
 
 import LeaguesMenu from '../LeaguesMenu';
-import NestedMenuItem from "material-ui-nested-menu-item";
 
 
 export default function BasicMenu({ setUser, leagues }) {
