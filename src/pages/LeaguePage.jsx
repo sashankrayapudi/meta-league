@@ -6,11 +6,11 @@ import * as leaguesAPI from '../utilities/leagues-api'
 
 export default function LeaguePage() {
   const [league, setLeague] = useState(null);
-  let { leagueId } = useParams();
+  let { sleeperUser, leagueId } = useParams();
 
   useEffect(function() {
     async function getLeague() {
-      const leagueData = await leaguesAPI.getById(leagueId);
+      const leagueData = await leaguesAPI.getLeague(sleeperUser, leagueId);
       // console.log(leagueData)
       setLeague(leagueData)
     }

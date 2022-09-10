@@ -10,6 +10,7 @@ import { ThemeProvider } from '@mui/material/styles';
 
 
 import BasicMenu from '../BasicMenu/BasicMenu'
+import SleeperUserForm from '../SleeperUserForm'
 
 
 
@@ -57,10 +58,17 @@ const GoDown = styled(ExpandMoreIcon)({
   fontSize: '8rem'
 })
 
-export default function Header({ user, setUser, leagues, theme }) {
+export default function Header({ user, setUser }) {
   const [checked, setChecked] = useState(false);
   const [hour, setHour] = useState(null)
+  const [sleeperUser, setSleeperUser] = useState("")
 
+
+  const pullSleeperUser = (data) => {
+    setSleeperUser(data)
+    // console.log(sleeperUser)
+  }
+  
   useEffect(() => {
     setChecked(true);
   }, [])
@@ -69,17 +77,16 @@ export default function Header({ user, setUser, leagues, theme }) {
   useEffect(() => {
     const date = new Date();
     const hour = date.getHours()
-    console.log(hour)
-    setHour(23)
+    setHour(hour)
   }, [])
 
   return (
-    <ThemeProvider theme={theme}>
     <RootDiv id="header">
       <MyAppBar elevation={0}>
         <MyToolBar>
           <Title>{hour < 12  ? (hour >= 6 ? "Good Morning" : "Sweet Dreams") : (hour < 18 ? "Good Afternoon" : "Good Evening")}, <MySpan>{user.name}</MySpan></Title>
-          <BasicMenu setUser={setUser} leagues={leagues} />
+          <SleeperUserForm pullSleeperUser={pullSleeperUser} />
+          <BasicMenu setUser={setUser} sleeperUser={sleeperUser}/>
         </MyToolBar>
       </MyAppBar>
       <Collapse in={checked} {... (checked ? { timeout: 1000 } : {})}>
@@ -96,6 +103,6 @@ export default function Header({ user, setUser, leagues, theme }) {
         </WelcomeDiv>
       </Collapse>
     </RootDiv>
-    </ThemeProvider>
+
   )
 }

@@ -20,7 +20,7 @@ export default function App() {
             {/* <NavBar user={user} setUser={setUser} /> */}
             <Routes>
               <Route path='/' element={<Landing user={user} setUser={setUser} />} />
-              <Route path='/leagues/:leagueId' element={<LeaguePage />} />
+              <Route path='/leagues/:sleeperUser/:leagueId' element={<LeaguePage />} />
               <Route path='/orders/new' element={<NewOrderPage />} />
               <Route path='/orders' element={<OrderHistoryPage />} />
             </Routes>

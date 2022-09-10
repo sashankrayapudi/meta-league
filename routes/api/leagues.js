@@ -3,10 +3,10 @@ const router = express.Router();
 const leaguesCtrl = require('../../controllers/api/leagues');
 
 // GET /api/leagues
-router.get('/', leaguesCtrl.getAll)
+router.get('/:sleeperUser', leaguesCtrl.getUserLeagues)
 
-// GET /api/leagues/:id
-router.get('/:leagueId', leaguesCtrl.show)
+// GET /api/leagues/:sleeperUser/:id
+router.get('/:sleeperUser/:leagueId', leaguesCtrl.getLeague)
 
 
 module.exports = router;

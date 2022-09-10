@@ -1,4 +1,5 @@
 import * as React from 'react';
+import { useState, useEffect } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import Button from '@mui/material/Button';
 import Menu from '@mui/material/Menu';
@@ -6,8 +7,9 @@ import MenuItem from '@mui/material/MenuItem';
 
 import LeaguePage from '../pages/LeaguePage'
 
-export default function LeaguesMenu({ leagues }) {
-  console.log(leagues)
+import * as leaguesAPI from '../utilities/leagues-api'
+
+export default function LeaguesMenu({ sleeperUser }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
@@ -16,6 +18,16 @@ export default function LeaguesMenu({ leagues }) {
   const handleClose = () => {
     setAnchorEl(null);
   };
+
+  const [leagues, setLeagues] = useState([]);
+  useEffect(function() {
+    async function getLeagues() {
+      const leagues = await leaguesAPI.getUserLeagues(sleeperUser)
+      setLeagues(leagues)
+      console.log(leagues)
+    }
+    getLeagues();
+  }, [])
 
   return (
     <div>
@@ -39,9 +51,15 @@ export default function LeaguesMenu({ leagues }) {
         }}
       >
         <div>
-          {leagues.map((league, idx) => 
-            <MenuItem key={idx} ><a href={`leagues/${league.league_id}`}>{league.name}</a></MenuItem>
-          )}
+          { sleeperUser ?
+            <>
+              {leagues.map((league, idx) => 
+                <MenuItem key={idx} ><a href={`leagues/${sleeperUser}/${league.league_id}`}>{league.name}</a></MenuItem>
+              )}
+            </>
+            : 
+            <p>Enter Sleeper Username</p>
+          }
         </div>
       </Menu>
     </div>
