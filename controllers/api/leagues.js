@@ -62,6 +62,7 @@ async function getLeague(req, res) {
 
   const scoringSettings = leagueData.scoring_settings
 
+  // array of all players and their computed projections by week
   const computedPlayers = computePlayers(playerData, weeklyData, scoringSettings);
 
   res.json(computedPlayers)

@@ -1,19 +1,5 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-} */
-
 /* CSS Custom Properties */
-/* :root {
+:root {
   --white: #FFFFFF;
   --tan-1: #FBF9F6;
   --tan-2: #E7E2DD;
@@ -22,7 +8,7 @@ code {
   --orange: #F67F00;
   --text-light: #968c84;
   --text-dark: #615954;
-} */
+}
 
 *, *:before, *:after {
   box-sizing: border-box;
@@ -35,7 +21,7 @@ body {
   sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: var(--tan-4);
+  /* background-color: var(--tan-4); */
   padding: 2vmin;
   height: 100vh;
 }
@@ -94,8 +80,8 @@ code {
 
 .form-container {
   padding: 3vmin;
-  background-color: var(--tan-1);
-  border: .1vmin solid var(--tan-3);
+  background-color: rgba(0,0,0,0.5);
+  border: .1vmin solid rgba(0,0,0,0.5);
   border-radius: 1vmin;
 }
 
@@ -115,6 +101,7 @@ label {
   font-size: 2vmin;
   display: flex;
   align-items: center;
+  color: white;
 }
 
 input {
@@ -135,12 +122,12 @@ button, a.button {
   margin: 1vmin;
   padding: 1vmin;
   color: var(--white);
-  background-color: var(--orange);
+  background-color: rgba(128,0,128,0.3);
   font-size: 2vmin;
   font-weight: bold;
   text-decoration: none;
   text-align: center;
-  border: .1vmin solid var(--tan-2);
+  border: .1vmin solid rgb(75,0,130);
   border-radius: .5vmin;
   outline: none;
   cursor: pointer;
@@ -158,7 +145,7 @@ button.btn-xs {
 
 button:disabled, form:invalid button[type="submit"] {
   cursor: not-allowed;
-  background-color: var(--tan-4);
+  background-color: rgba(128,0,128,0.3);
 }
 
 button[type="submit"] {
@@ -166,9 +153,8 @@ button[type="submit"] {
   margin: 1vmin 0 0;
 }
 
-
-
-.AuthPage {
+   
+/* .AuthPage {
   height: 100%;
   display: flex;
   justify-content: space-evenly;
@@ -182,4 +168,4 @@ button[type="submit"] {
   text-align: center;
   color: var(--text-light);
   cursor: pointer;
-}
+} */
