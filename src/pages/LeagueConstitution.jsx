@@ -1,11 +1,4 @@
 
-//   return (
-//     <div>
-//       
-//     </div>
-//   )
-
-// }
 
 import * as React from 'react';
 import { styled, createTheme, ThemeProvider } from '@mui/material/styles';
@@ -99,7 +92,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-export default function LeaguePage() {
+export default function LeagueConstitution() {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -147,7 +140,7 @@ export default function LeaguePage() {
                 noWrap
                 sx={{ flexGrow: 1 }}
               >
-                <p>{league && league.name} Dashboard</p>
+                <p>{league && league.name} Constitution</p>
               </Typography>
               {/* <IconButton color="inherit">
                 <Badge badgeContent={4} color="secondary">

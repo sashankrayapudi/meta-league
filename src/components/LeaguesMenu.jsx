@@ -54,7 +54,7 @@ export default function LeaguesMenu({ sleeperUser }) {
           { sleeperUser ?
             <>
               {leagues.map((league, idx) => 
-                <MenuItem key={idx} ><a href={`leagues/${sleeperUser}/${league.league_id}`}>{league.name}</a></MenuItem>
+                <MenuItem key={idx} ><a href={`/leagues/${sleeperUser}/${league.league_id}`}>{league.name}</a></MenuItem>
               )}
             </>
             : 

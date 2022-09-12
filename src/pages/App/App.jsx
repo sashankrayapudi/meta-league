@@ -7,6 +7,8 @@ import OrderHistoryPage from '../OrderHistoryPage/OrderHistoryPage';
 import NavBar from '../../components/NavBar/NavBar';
 import Landing from '../Landing/Landing'
 import LeaguePage from '../LeaguePage'
+import LeagueBlog from '../LeagueBlog'
+import LeagueConstitution from '../LeagueConstitution'
 // import './App.css';
 
 
@@ -21,8 +23,10 @@ export default function App() {
             <Routes>
               <Route path='/' element={<Landing user={user} setUser={setUser} />} />
               <Route path='/leagues/:sleeperUser/:leagueId' element={<LeaguePage />} />
-              <Route path='/orders/new' element={<NewOrderPage />} />
-              <Route path='/orders' element={<OrderHistoryPage />} />
+              <Route path='/leagues/:sleeperUser/:leagueId/blog' element={<LeagueBlog />} />
+              <Route path='/leagues/:sleeperUser/:leagueId/constitution' element={<LeagueConstitution />} />
+              {/* <Route path='/orders/new' element={<NewOrderPage />} />
+              <Route path='/orders' element={<OrderHistoryPage />} /> */}
             </Routes>
           </>
           :
