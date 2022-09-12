@@ -11,7 +11,7 @@ import SortIcon from '@mui/icons-material/Sort'
 import LeaguesMenu from '../LeaguesMenu';
 
 
-export default function BasicMenu({ setUser, leagues, sleeperUser }) {
+export default function BasicMenu({ setUser, sleeperUser, leagues }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   
   const open = Boolean(anchorEl);
@@ -48,7 +48,7 @@ export default function BasicMenu({ setUser, leagues, sleeperUser }) {
         }}
       >
         {/* <MenuItem onClick={handleClose}><LeagueAccordion /></MenuItem> */}
-        <LeaguesMenu leagues={leagues} sleeperUser={sleeperUser} />
+        <LeaguesMenu  sleeperUser={sleeperUser}  />
         <MenuItem to='' onClick={handleLogOut} sx ={{fontSize: '15px'}}>LOGOUT</MenuItem>
       </Menu>
     </div>

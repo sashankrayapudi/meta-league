@@ -1,6 +1,39 @@
 import { Component } from 'react';
 import { signUp } from '../../utilities/users-service';
 
+import { styled } from '@mui/system';
+
+
+const FormDiv = styled('div')({
+  padding: '3vmin',
+  backgroundColor: 'rgba(128,0,128,0.4)',
+  border: '.1vmin solid rgba(0,0,0,0.5)',
+  borderRadius: '1vmin',
+})
+
+const Form = styled('form')({
+  display: 'grid',
+  gridTemplateColumns: '1fr 3fr',
+  gridTemplateRows: 'auto',
+  gap: '1.25vmin',
+  color: 'white',
+})
+
+const Button = styled('button')({
+  margin: '1vmin',
+  padding: '1vmin',
+  color: 'white',
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  fontSize: '2vmin',
+  fontWeight: 'bold',
+  textDecoration: 'none',
+  textAlign: 'center',
+  border: '.1vmin rgba(0,0,0,0.5)',
+  borderRadius: '.5vmin',
+  outline: 'none',
+  cursor: 'pointer',
+})
+
 export default class SignUpForm extends Component {
   state = {
     name: '',
@@ -36,8 +69,8 @@ export default class SignUpForm extends Component {
     const disable = this.state.password !== this.state.confirm;
     return (
       <div>
-        <div className="form-container">
-          <form autoComplete="off" onSubmit={this.handleSubmit}>
+        <FormDiv>
+          <Form autoComplete="off" onSubmit={this.handleSubmit}>
             <label>Name</label>
             <input type="text" name="name" value={this.state.name} onChange={this.handleChange} required />
             <label>Email</label>
@@ -46,9 +79,9 @@ export default class SignUpForm extends Component {
             <input type="password" name="password" value={this.state.password} onChange={this.handleChange} required />
             <label>Confirm</label>
             <input type="password" name="confirm" value={this.state.confirm} onChange={this.handleChange} required />
-            <button type="submit" disabled={disable}>SIGN UP</button>
-          </form>
-        </div>
+            <Button type="submit" disabled={disable}>SIGN UP</Button>
+          </Form>
+        </FormDiv>
         <p className="error-message">&nbsp;{this.state.error}</p>
       </div>
     );

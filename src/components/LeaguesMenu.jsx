@@ -24,7 +24,7 @@ export default function LeaguesMenu({ sleeperUser }) {
     async function getLeagues() {
       const leagues = await leaguesAPI.getUserLeagues(sleeperUser)
       setLeagues(leagues)
-      console.log(leagues)
+      // console.log(leagues)
     }
     getLeagues();
   }, [])

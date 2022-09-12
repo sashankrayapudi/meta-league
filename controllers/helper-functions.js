@@ -29,7 +29,7 @@ exports.computePlayers = (playerData, weeklyData, scoringSettings) => {
       };
       if(projPlayer.team) {
           player.t = projPlayer.team;
-          player.wi = {};
+          player.wp = {};
       }
       if(projPlayer.team && projPlayer.injury_status) {
           player.is = projPlayer.injury_status;
@@ -44,9 +44,9 @@ exports.computePlayers = (playerData, weeklyData, scoringSettings) => {
           const id = player.player_id;
           
           // check if the player is active in the NFL
-          if(!computedPlayers[id].wi) continue;
+          if(!computedPlayers[id].wp) continue;
 
-          computedPlayers[id].wi[week] = {
+          computedPlayers[id].wp[week] = {
               p: calculateProjection(player.stats, scoringSettings),
               o: player.opponent
           }

@@ -3,7 +3,6 @@ import { useState } from 'react';
 import SignUpForm from '../../components/SignUpForm/SignUpForm';
 import LoginForm from '../../components/LoginForm/LoginForm';
 import { CssBaseline } from '@mui/material';
-import ScopedCssBaseline from '@mui/material/ScopedCssBaseline'
 
 import favre from '../../assets/favre.png'
 
@@ -15,7 +14,10 @@ const MyMain = styled('div')({
   backgroundImage: `url(${favre})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
-
+  display: 'flex',
+  flexDirection: 'column',
+  justifyContent: 'flex-start',
+  alignItems: 'center',
 })
 
 const MySpan = styled('span')({
@@ -24,7 +26,28 @@ const MySpan = styled('span')({
 
 const MyH1 = styled('h1')({
   fontFamily: 'Nunito',
-  fontSize: '2.5rem'
+  fontSize: '3.5rem',
+  textAlign: 'center',
+  marginTop: '10vmin'
+})
+
+const ButtonDiv = styled('div')({
+  textAlign: 'center'
+})
+
+const Button = styled('button')({
+  margin: '1vmin',
+  padding: '1vmin',
+  color: 'white',
+  backgroundColor: 'rgba(0,0,0,0.5)',
+  fontSize: '2vmin',
+  fontWeight: 'bold',
+  textDecoration: 'none',
+  textAlign: 'center',
+  border: '.1vmin rgba(0,0,0,0.5)',
+  borderRadius: '.5vmin',
+  outline: 'none',
+  cursor: 'pointer',
 })
 
 export default function AuthPage({ setUser }) {
@@ -32,12 +55,13 @@ export default function AuthPage({ setUser }) {
   
   return (
       <MyMain>
-        <MyH1 className="align-ctr"><MySpan>Meta</MySpan> League</MyH1>
-        <div className="align-ctr">
-          <button onClick={() => setShowLogin(!showLogin)} >
+        <CssBaseline />
+        <MyH1><MySpan>Meta</MySpan> League</MyH1>
+        <ButtonDiv>
+          <Button onClick={() => setShowLogin(!showLogin)} >
             {showLogin ? 'Sign Up' : 'Log In'}
-          </button>
-        </div>
+          </Button>
+        </ButtonDiv>
         { showLogin ?
             <LoginForm setUser={setUser} />
             :
