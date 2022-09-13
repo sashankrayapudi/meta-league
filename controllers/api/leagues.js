@@ -40,6 +40,13 @@ async function getUserLeagues(req, res) {
 async function getLeague(req, res) {
   const leagueDataResults = await fetch(`${baseURL}/league/${req.params.leagueId}`)
   const leagueData = await leagueDataResults.json();
+
+  const usersInLeagueResults = await fetch(`${baseURL}/league/${req.params.leagueId}/users`)
+  const usersInLeagueData = await usersInLeagueResults.json();
+
+  const commissionerArrObjs = usersInLeagueData.filter(user => user.is_owner) 
+  leagueData['commissioners'] = commissionerArrObjs
+
   res.json(leagueData)
 
   // const regSznLength = leagueData.settings.playoff_week_start - 1

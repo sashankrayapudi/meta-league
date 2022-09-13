@@ -265,7 +265,10 @@ export default function LeagueBlog({ setUser }) {
                 {/* Recent Orders */}
                 <Grid item xs={12}>
                   <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
-                    {/* <Orders /> */}
+                    { league && 
+                    <>
+                    {league.commissioners[0].display_name === sleeperUser ? 
+                    <>
                     <h3 style={{textAlign: 'center'}}>Add New Blog Post</h3>
                     <form  style={{display: 'inline-block', textAlign: 'center'}} onSubmit={handleSubmit} autoComplete="off">
                       <FormControl>
@@ -292,6 +295,11 @@ export default function LeagueBlog({ setUser }) {
                         <Button type="submit" variant="contained" sx={{marginBottom: '1.5rem'}}>Add Post</Button>
                       </FormControl>
                     </form>
+                    </>
+                  :
+                  <p>Ask your Commissioner to Add Blog Posts!</p>}
+                  </>
+                  }
                   </Paper>
                 </Grid>
               </Grid>
