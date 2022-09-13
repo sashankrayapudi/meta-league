@@ -1,6 +1,6 @@
 <h1 align='center'> :football: Meta League  :football: </h1>
 
-<p align='center'> The complimentary platform to your Sleeper Fantasy Football Leagues</p>
+<p align='center'> The complimentary platform to your Sleeper Fantasy Football Leagues. </p>
 <p align='center'> Type in your Sleeper username to get info and personalize your Fantasy Leagues and Teams!</p>
 
 
