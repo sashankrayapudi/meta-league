@@ -20,7 +20,7 @@ async function getUserLeagues(req, res) {
     const user_id = userData.user_id
     const fetchLeagues = await fetch(`https://api.sleeper.app/v1/user/${user_id}/leagues/nfl/2022`)
     const userLeagues = await fetchLeagues.json();
-    console.log(userLeagues)
+    // console.log(userLeagues)
     res.json(userLeagues)
     for (let userLeague of userLeagues) {
       let league = await League.findOne({sleeperLeagueId: userLeague.league_id})

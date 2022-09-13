@@ -36,6 +36,8 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import * as leaguesAPI from '../utilities/leagues-api'
+import * as postsAPI from '../utilities/posts-api'
+import * as userService from '../utilities/users-service';
 
 function Copyright(props) {
   return (
@@ -98,7 +100,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-export default function LeagueBlog() {
+export default function LeagueBlog({ setUser }) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -116,6 +118,37 @@ export default function LeagueBlog() {
   }, [])
 
 
+  const [posts, setPosts] = useState([])
+
+  useEffect(function() {
+    async function getPosts() {
+      const posts = await postsAPI.getAll(leagueId);
+      // console.log(posts)
+      setPosts(posts);
+    }
+    getPosts();
+  }, [])
+
+  const [title, setTitle] = useState('')
+  const [body, setBody] = useState('')
+
+  function handleSubmit(e) {
+    e.preventDefault()
+    handleAddPost(title, body)
+  }
+
+  
+  async function handleAddPost(postTitle, postBody) {
+    const postData = {title: postTitle, body: postBody}
+    const post = await postsAPI.add(postData, leagueId)
+    // console.log(posts)
+    setPosts([...posts,post])
+  }
+
+  async function handleDeletePost(postId) {
+    const posts = await postsAPI.deletePost(postId, leagueId)
+    setPosts(posts)
+  }
 
 
   return (
@@ -154,7 +187,7 @@ export default function LeagueBlog() {
                   <NotificationsIcon />
                 </Badge>
               </IconButton> */}
-              <BasicMenu sleeperUser={sleeperUser} />
+              <BasicMenu sleeperUser={sleeperUser} setUser={setUser} />
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>
@@ -199,11 +232,20 @@ export default function LeagueBlog() {
                       p: 2,
                       display: 'flex',
                       flexDirection: 'column',
-                      height: 240,
+                      // height: 640,
                     }}
                   >
                     {/* <Chart /> */}
-
+                    <h2 style={{textAlign: 'center'}}>Blog</h2>
+                    {/* <h1>{JSON.stringify(posts)}</h1> */}
+                    {posts.map((post, idx) => 
+                      <Paper key={idx} elevation={12} sx={{margin: '1rem', backgroundColor: 'rgb(64,64,64)', color: 'white'}} >
+                        <h3>{post.title}</h3> <hr />
+                        <p>{post.body}</p> 
+                        <p>{post.createdAt}</p>
+                        <Button onClick={() => handleDeletePost(post._id)}>Delete</Button>
+                      </Paper>
+                    )}
                   </Paper>
                 </Grid>
                 {/* Recent Deposits */}
@@ -217,22 +259,24 @@ export default function LeagueBlog() {
                     }}
                   >
                     {/* <Deposits /> */}
+                    <h3 style={{textAlign: 'center'}}>Archives</h3>
                   </Paper>
                 </Grid>
                 {/* Recent Orders */}
                 <Grid item xs={12}>
                   <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                     {/* <Orders /> */}
-                    <h2 style={{textAlign: 'center'}}>Add New Blog Post</h2>
-                    <form  style={{display: 'inline-block', textAlign: 'center'}} autoComplete="off">
+                    <h3 style={{textAlign: 'center'}}>Add New Blog Post</h3>
+                    <form  style={{display: 'inline-block', textAlign: 'center'}} onSubmit={handleSubmit} autoComplete="off">
                       <FormControl>
                         <FormLabel sx={{marginBottom: '1rem'}}>Post Title</FormLabel>
                         <TextField
                           required
                           id="outlined-required"
                           label="Required"
-                          defaultValue="Hello World"
                           sx={{marginBottom: '2rem', width: '25rem'}}
+                          value={title}
+                          onChange={e => setTitle(e.target.value)}
                         />
                         <FormLabel sx={{marginBottom: '1rem'}}>Content</FormLabel>
                         <TextField
@@ -240,9 +284,10 @@ export default function LeagueBlog() {
                           label="Multiline"
                           multiline
                           rows={4}
-                          defaultValue="Default Value"
                           variant="filled"
                           sx={{marginBottom: '2rem'}}
+                          value={body}
+                          onChange={e => setBody(e.target.value)}
                         />
                         <Button type="submit" variant="contained" sx={{marginBottom: '1.5rem'}}>Add Post</Button>
                       </FormControl>
@@ -254,7 +299,7 @@ export default function LeagueBlog() {
             </Container>
           </Box>
         </Box>
-        <h1>{JSON.stringify(league)}</h1>
+        {/* <h1>{JSON.stringify(league)}</h1> */}
       </ThemeProvider>
   );
 }

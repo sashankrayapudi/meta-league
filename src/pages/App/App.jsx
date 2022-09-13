@@ -22,9 +22,9 @@ export default function App() {
             {/* <NavBar user={user} setUser={setUser} /> */}
             <Routes>
               <Route path='/' element={<Landing user={user} setUser={setUser} />} />
-              <Route path='/leagues/:sleeperUser/:leagueId' element={<LeaguePage />} />
-              <Route path='/leagues/:sleeperUser/:leagueId/blog' element={<LeagueBlog />} />
-              <Route path='/leagues/:sleeperUser/:leagueId/constitution' element={<LeagueConstitution />} />
+              <Route path='/leagues/:sleeperUser/:leagueId' element={<LeaguePage setUser={setUser} />} />
+              <Route path='/leagues/:sleeperUser/:leagueId/posts' element={<LeagueBlog setUser={setUser} />} />
+              <Route path='/leagues/:sleeperUser/:leagueId/constitution' element={<LeagueConstitution setUser={setUser} />} />
               {/* <Route path='/orders/new' element={<NewOrderPage />} />
               <Route path='/orders' element={<OrderHistoryPage />} /> */}
             </Routes>

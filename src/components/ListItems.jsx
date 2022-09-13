@@ -23,7 +23,7 @@ export default function ListItems({ sleeperUser, leagueId}) {
       </ListItemIcon>
       <ListItemText primary="Dashboard" />
     </ListItemButton>
-    <ListItemButton href={`/leagues/${sleeperUser}/${leagueId}/blog`}>
+    <ListItemButton href={`/leagues/${sleeperUser}/${leagueId}/posts`}>
       <ListItemIcon>
         <BookTwoToneIcon />
       </ListItemIcon>
@@ -35,7 +35,7 @@ export default function ListItems({ sleeperUser, leagueId}) {
       </ListItemIcon>
       <ListItemText primary="Constitution" />
     </ListItemButton>
-    <ListItemButton>
+    {/* <ListItemButton>
       <ListItemIcon>
         <BarChartIcon />
       </ListItemIcon>
@@ -46,7 +46,7 @@ export default function ListItems({ sleeperUser, leagueId}) {
         <LayersIcon />
       </ListItemIcon>
       <ListItemText primary="Integrations" />
-    </ListItemButton>
+    </ListItemButton> */}
   </React.Fragment>
   );
 }

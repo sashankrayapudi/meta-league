@@ -1,9 +1,9 @@
 const mongoose = require('mongoose')
-const Schema = mongoose.Schema
+const Schema = mongoose.Schema;
 
-const blogSchema = new Schema({
+const postSchema = new Schema({
   title: String,
-  content: String,
+  body: String,
 }, {
   timestamps: true,
 })
@@ -12,7 +12,7 @@ const blogSchema = new Schema({
 
 const leagueSchema = new Schema({
   sleeperLeagueId: { type: String, required: true},
-  blogs: [blogSchema]
+  blogsList: [postSchema]
 })
 
 

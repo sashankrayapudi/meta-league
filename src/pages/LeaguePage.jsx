@@ -37,6 +37,7 @@ import { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 
 import * as leaguesAPI from '../utilities/leagues-api'
+import * as userService from '../utilities/users-service';
 
 function Copyright(props) {
   return (
@@ -99,7 +100,7 @@ const Drawer = styled(MuiDrawer, { shouldForwardProp: (prop) => prop !== 'open' 
 
 const mdTheme = createTheme();
 
-export default function LeaguePage() {
+export default function LeaguePage({ setUser={setUser} }) {
   const [open, setOpen] = React.useState(true);
   const toggleDrawer = () => {
     setOpen(!open);
@@ -154,7 +155,7 @@ export default function LeaguePage() {
                   <NotificationsIcon />
                 </Badge>
               </IconButton> */}
-              <BasicMenu sleeperUser={sleeperUser} />
+              <BasicMenu sleeperUser={sleeperUser} setUser={setUser} />
             </Toolbar>
           </AppBar>
           <Drawer variant="permanent" open={open}>
