@@ -22,6 +22,12 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import BasicMenu from '../components/BasicMenu/BasicMenu'
 import SleeperUserForm from '../components/SleeperUserForm'
 import ListItems from '../components/ListItems';
+
+import FormControl from "@mui/material/FormControl";
+import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
+import FormLabel from '@mui/material/FormLabel';
+import Button from '@mui/material/Button'
 // import Chart from './Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
@@ -111,6 +117,7 @@ export default function LeagueBlog() {
 
 
 
+
   return (
       <ThemeProvider theme={mdTheme}>
         <Box sx={{ display: 'flex' }}>
@@ -196,6 +203,7 @@ export default function LeagueBlog() {
                     }}
                   >
                     {/* <Chart /> */}
+
                   </Paper>
                 </Grid>
                 {/* Recent Deposits */}
@@ -215,6 +223,30 @@ export default function LeagueBlog() {
                 <Grid item xs={12}>
                   <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
                     {/* <Orders /> */}
+                    <h2 style={{textAlign: 'center'}}>Add New Blog Post</h2>
+                    <form  style={{display: 'inline-block', textAlign: 'center'}} autoComplete="off">
+                      <FormControl>
+                        <FormLabel sx={{marginBottom: '1rem'}}>Post Title</FormLabel>
+                        <TextField
+                          required
+                          id="outlined-required"
+                          label="Required"
+                          defaultValue="Hello World"
+                          sx={{marginBottom: '2rem', width: '25rem'}}
+                        />
+                        <FormLabel sx={{marginBottom: '1rem'}}>Content</FormLabel>
+                        <TextField
+                          id="filled-multiline-static"
+                          label="Multiline"
+                          multiline
+                          rows={4}
+                          defaultValue="Default Value"
+                          variant="filled"
+                          sx={{marginBottom: '2rem'}}
+                        />
+                        <Button type="submit" variant="contained" sx={{marginBottom: '1.5rem'}}>Add Post</Button>
+                      </FormControl>
+                    </form>
                   </Paper>
                 </Grid>
               </Grid>

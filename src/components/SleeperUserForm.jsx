@@ -1,7 +1,20 @@
 // LoginForm.jsx
 
 import { useState } from 'react';
+import { styled } from '@mui/system';
 
+import FormControl from "@mui/material/FormControl";
+import TextField from '@mui/material/TextField';
+import Input from '@mui/material/Input';
+import FormLabel from '@mui/material/FormLabel';
+import Button from '@mui/material/Button'
+
+const RootDiv = styled('div')({
+  display: 'flex',
+  justifyContent: 'center',
+  alignItems: 'center',
+  fontFamily: 'Nunito',
+})
 
 export default function SleeperUserForm({ pullSleeperUser }) {
   const [sleeperUsername, setSleeperUsername] = useState("");
@@ -28,15 +41,15 @@ export default function SleeperUserForm({ pullSleeperUser }) {
   }
 
   return (
-    <div>
-      <div className="form-container">
-        <form autoComplete="off" onSubmit={handleSubmit}>
-          <label>Sleeper Username:</label>
-          <input type="text" name="sleeperUsername" value={sleeperUsername} onChange={handleChange} required />
-          <button type="submit">Submit</button>
+    <RootDiv>
+      <div className="form-container"  >
+        <form autoComplete="off" onSubmit={handleSubmit} >
+          <FormLabel style={{color: 'white', fontFamily: 'Nunito'}}>Sleeper Username: </FormLabel>
+          <Input type="text" variant="filled" name="sleeperUsername" value={sleeperUsername} onChange={handleChange} style={{color: 'white', fontFamily: 'Nunito'}} required />
+          <Button type="submit" size='small' style={{ fontSize: '1rem', fontFamily: 'Nunito', margin: '0.5rem'}} variant="outlined" >Submit</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
-    </div>
+    </RootDiv>
   );
 }
