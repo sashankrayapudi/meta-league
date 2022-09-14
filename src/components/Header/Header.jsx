@@ -85,7 +85,7 @@ export default function Header({ user, setUser }) {
       <MyAppBar elevation={0}>
         <MyToolBar>
           <Title>{hour < 12  ? (hour >= 6 ? "Good Morning" : "Sweet Dreams") : (hour < 18 ? "Good Afternoon" : "Good Evening")}, <MySpan>{user.name}</MySpan></Title>
-          <SleeperUserForm pullSleeperUser={pullSleeperUser} />
+          <SleeperUserForm pullSleeperUser={pullSleeperUser} setUser={setUser} />
           <BasicMenu setUser={setUser} sleeperUser={sleeperUser}/>
         </MyToolBar>
       </MyAppBar>

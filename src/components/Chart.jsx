@@ -1,6 +1,7 @@
 import * as React from 'react';
 import { useTheme } from '@mui/material/styles';
 import { BarChart, Bar, Line, XAxis, YAxis, Label, ResponsiveContainer } from 'recharts';
+import Typography from '@mui/material/Typography';
 // import Title from './Title';
 
 // Generate Sales Data
@@ -25,7 +26,9 @@ export default function Chart({data}) {
 
   return (
     <React.Fragment>
-      {/* <Title>Today</Title> */}
+      <Typography component="h2" variant="h6" color="primary" gutterBottom>
+        Cumulative Projected Points by Team
+      </Typography>
       <ResponsiveContainer>
         <BarChart
           data={data}
@@ -44,7 +47,7 @@ export default function Chart({data}) {
           <YAxis
             stroke={theme.palette.text.secondary}
             style={theme.typography.body2}
-            // domain={['dataMin - 100', 'dataMax + 100']}
+            domain={['auto', 'auto']}
           >
             <Label
               angle={270}

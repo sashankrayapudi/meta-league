@@ -9,6 +9,8 @@ import Input from '@mui/material/Input';
 import FormLabel from '@mui/material/FormLabel';
 import Button from '@mui/material/Button'
 
+import BasicMenu from '../components/BasicMenu/BasicMenu'
+
 const RootDiv = styled('div')({
   display: 'flex',
   justifyContent: 'center',
@@ -16,7 +18,7 @@ const RootDiv = styled('div')({
   fontFamily: 'Nunito',
 })
 
-export default function SleeperUserForm({ pullSleeperUser }) {
+export default function SleeperUserForm({ pullSleeperUser, setUser }) {
   const [sleeperUsername, setSleeperUsername] = useState("");
   const [error, setError] = useState('');
 
@@ -46,7 +48,7 @@ export default function SleeperUserForm({ pullSleeperUser }) {
         <form autoComplete="off" onSubmit={handleSubmit} >
           <FormLabel style={{color: 'white', fontFamily: 'Nunito'}}>Sleeper Username: </FormLabel>
           <Input type="text" variant="filled" name="sleeperUsername" value={sleeperUsername} onChange={handleChange} style={{color: 'white', fontFamily: 'Nunito'}} required />
-          <Button type="submit" size='small' style={{ fontSize: '1rem', fontFamily: 'Nunito', margin: '0.5rem'}} variant="outlined" >Submit</Button>
+          <Button type="submit" size='small' style={{ fontSize: '1rem', fontFamily: 'Nunito', margin: '0.5rem'}}  >Submit</Button>
         </form>
       </div>
       <p className="error-message">&nbsp;{error}</p>
