@@ -7,7 +7,7 @@
 <h2 align='center'> :camera: Screenshots :camera: </h2>
 
 
-| <img src="https://i.imgur.com/mskmWSe.jpg"> |
+<img src="https://i.imgur.com/mskmWSe.jpg">
 
 
 
