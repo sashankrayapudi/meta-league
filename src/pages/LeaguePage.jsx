@@ -29,7 +29,7 @@ import NotificationsIcon from '@mui/icons-material/Notifications';
 import BasicMenu from '../components/BasicMenu/BasicMenu'
 import SleeperUserForm from '../components/SleeperUserForm'
 import ListItems from '../components/ListItems';
-// import Chart from './Chart';
+import Chart from '../components/Chart';
 // import Deposits from './Deposits';
 // import Orders from './Orders';
 
@@ -203,7 +203,6 @@ export default function LeaguePage({ setUser={setUser} }) {
                       height: 240,
                     }}
                   >
-                    {/* <Chart /> */}
                   </Paper>
                 </Grid>
                 {/* Recent Deposits */}
@@ -221,8 +220,9 @@ export default function LeaguePage({ setUser={setUser} }) {
                 </Grid>
                 {/* Recent Orders */}
                 <Grid item xs={12}>
-                  <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column' }}>
+                  <Paper sx={{ p: 2, display: 'flex', flexDirection: 'column', height: 500 }}>
                     {/* <Orders /> */}
+                    <Chart data={league && league.yearlyProjectionsData} />
                   </Paper>
                 </Grid>
               </Grid>
