@@ -203,6 +203,9 @@ export default function LeaguePage({ setUser={setUser} }) {
                       height: 240,
                     }}
                   >
+                  <h2>NFL State</h2>
+                  <p>Week: {league && league.nflState.week}</p>
+                  <p>Year: {league && league.nflState.season}</p>
                   </Paper>
                 </Grid>
                 {/* Recent Deposits */}
@@ -230,7 +233,7 @@ export default function LeaguePage({ setUser={setUser} }) {
             </Container>
           </Box>
         </Box>
-        <h1>{JSON.stringify(league)}</h1>
+        {/* <h1>{JSON.stringify(league)}</h1> */}
       </ThemeProvider>
   );
 }

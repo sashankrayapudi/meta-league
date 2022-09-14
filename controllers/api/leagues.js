@@ -125,6 +125,11 @@ async function getLeague(req, res) {
 
   leagueData['yearlyProjectionsData'] = yearlyProjectionsData
 
+  const nflStateResults = await fetch(`${baseURL}/state/nfl`)
+  const nflStateData = await nflStateResults.json();
+
+  leagueData['nflState'] = nflStateData
+
   res.json(leagueData)
 
 }
