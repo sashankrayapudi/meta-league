@@ -6,12 +6,8 @@
 
 <h2 align='center'> :camera: Screenshots :camera: </h2>
 
-|  |  |
-|---|---|
-| **HOME** | **ALL FISH** |
-| <img src="https://i.imgur.com/ocpTSfd.jpg"> | <img src="https://i.imgur.com/MbBJSf6.png"> |
-| **AQUARIUM** | **DELETE CONFIRMATION** | 
-| <img src="https://i.imgur.com/44T4MAe.png"> | <img src="https://i.imgur.com/G6HNz7d.png"> |
+
+| <img src="https://i.imgur.com/mskmWSe.jpg"> |
 
 
 
